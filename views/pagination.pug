@@ -1,0 +1,10 @@
+nav
+  ul(class='pagination')
+    
+
+    - var n = 1;
+    //- while n < count / 3
+    while n < count / resultsPerPage + 1
+      li(class='')
+        a(class='page-link' href=`../books/page=${n}`) #{n}
+        - n++

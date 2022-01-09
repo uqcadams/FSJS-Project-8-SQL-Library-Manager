@@ -1,0 +1,39 @@
+extends layout 
+
+block content 
+  h1 New Book
+  form(action="/books/new", method="post")
+    p
+      label(for='title') Title
+      input#title(name='title' type='text' value=book.title)
+
+      if (errors)
+        each error in errors 
+          if (error.path === "title")
+            p(class="error")= error.message
+
+    p
+      label(for='author') Author
+      input#author(name='author' type='text' value=book.author)
+      
+      if (errors)
+        each error in errors 
+          if (error.path === "author")
+            p(class="error")= error.message
+    p
+      label(for='genre') Genre
+      input#genre(name='genre' type='text' value=book.genre)
+    p
+      label(for='year') Year
+      input#year(name='year' type='text' value=book.year)
+
+      if (errors)
+        each error in errors 
+          if (error.path === "year")
+            p(class="error")= error.message
+    
+    p
+      input(type='submit' value='Create New Book')
+    p
+      a.button(href='/') Cancel
+    

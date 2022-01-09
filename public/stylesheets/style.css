@@ -1,41 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary: #7e57c2;
+  --primaryDark: #4d2c91;
+  --primaryLight: #b085f5;
+  --greyLight: rgb(245, 245, 246);
+  --greyDark: rgb(225, 226, 225);
+}
+
+* {
+  font-family: "Spline Sans", sans-serif;
+}
+
 body {
-  padding: 10px 50px 50px;
+  margin: 0;
+  /* font-family: "Spline Sans", sans-serif; */
+  /* padding: 10px 50px 50px; */
   font: 18px "Garamond", serif;
+  height: 100vh;
 }
 
 a {
-  color: #019875;
+  color: var(--primary);
   text-decoration: none;
   font-weight: bold;
   transition: 0.4s;
 }
 
-  a:hover {
-    color: black;
-  }
+a:hover {
+  color: black;
+}
 
-a.button, input[type=submit] {
-  color: white;
-  background: #019875;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+a.button,
+input[type="submit"] {
+  color: var(--greyLight);
+  background: var(--primaryDark);
+  /* font-family: "Lucida Grande", Helvetica, Arial, sans-serif; */
   padding: 10px 14px 12px;
   font-size: 14px;
   border-radius: 2px;
   cursor: pointer;
 }
 
-form a.button, input[type=submit] {
+form a.button,
+input[type="submit"] {
   margin-left: 140px;
   transition: 0.4s;
 }
 
-input[type=submit] {
+input[type="submit"] {
   border: 0;
 }
 
-  a.button:hover, input[type=submit]:hover {
-    background-color: #01b189;
-  }
+a.button:hover,
+input[type="submit"]:hover {
+  background-color: var(--primary);
+}
 
 p {
   margin: 20px auto;
@@ -54,7 +74,7 @@ h2 {
 }
 
 th {
-  border-bottom: 2px solid #D8B493;
+  border-bottom: 2px solid var(--primary);
   text-align: left;
   padding: 5px 20px 5px 10px;
 }
@@ -64,7 +84,7 @@ tr {
 }
 
 tr:nth-child(2n) {
-  background: #E7E7E7;
+  background: #e7e7e7;
 }
 
 td {
@@ -80,18 +100,140 @@ label {
 
 input {
   padding: 10px;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* font-family: "Lucida Grande", Helvetica, Arial, sans-serif; */
   font-size: 14px;
   border-radius: 2px;
-  border-color: #E7E7E7;
+  border-color: #e7e7e7;
   transition: 0.4s;
 }
 
-input[type=text] {
+input[type="text"] {
   margin-left: 7px;
   width: 300px;
 }
 
+input:focus {
+  outline: none !important;
+  border-color: var(--primaryLight);
+  box-shadow: 0 0 20px --primary;
+}
+
 .error {
   color: rgb(236, 15, 15);
+  font-size: small;
+  font-style: italic;
+}
+
+/* PAGE STYLING */
+body {
+  display: flex;
+  flex-flow: column;
+  background-color: var(--greyDark);
+}
+
+/* HEADER STYLING */
+header {
+  border-top: 1em solid var(--primaryDark);
+  background-color: var(--primary);
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  -webkit-box-shadow: 5px 5px 7px 1px rgba(119, 119, 119, 0.67);
+  box-shadow: 5px 5px 7px 1px rgba(119, 119, 119, 0.67);
+}
+
+header nav {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  list-style: none;
+  align-items: center;
+}
+
+header nav li:first-of-type {
+  margin-right: 1em;
+}
+
+header nav li:not(:first-of-type) {
+  margin: 0 0.5em;
+}
+
+header nav li:not(:first-of-type, :last-of-type) {
+  display: none;
+}
+
+.home {
+  color: var(--greyLight);
+}
+
+/* MAIN STYLING */
+
+main {
+  background-color: var(--greyLight);
+  -webkit-box-shadow: 5px 5px 7px 1px rgba(119, 119, 119, 0.67);
+  box-shadow: 5px 5px 7px 1px rgba(119, 119, 119, 0.67);
+  margin: 2em;
+  padding: 1em 4em;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  border-radius: 0.5em;
+  min-width: 60%;
+  max-width: 1200px;
+  align-self: center;
+  /* height: 100%; */
+  /* height: calc(100% - header); */
+}
+
+/* ABOUT PAGE */
+
+div.about {
+  display: flex;
+  flex-flow: row;
+  padding: 2em;
+  justify-content: space-between;
+  height: 50vh;
+}
+div.about > * {
+  width: 50%;
+}
+
+div.description {
+  text-align: center;
+  padding: 0 2em 0 0;
+}
+
+div.image {
+  background-image: url(/images/books.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* PAGINATION STYLE */
+.pagination {
+  display: flex;
+}
+
+.pagination li {
+  margin: 0.5em;
+}
+
+/* SEARCH FORM */
+.search-form {
+  display: flex;
+}
+
+.search-button {
+  background-color: var(--primaryDark);
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  header nav li:not(:first-of-type, :last-of-type) {
+    display: block;
+  }
 }

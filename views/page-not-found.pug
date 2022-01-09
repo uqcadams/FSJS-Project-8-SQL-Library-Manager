@@ -1,0 +1,11 @@
+extends layout 
+
+block content 
+  h1 Page Not Found
+  p Sorry! We couldn't find the page you were looking for.
+  img(src="/images/not-found.png", alt="", srcset="")
+  br 
+  h3= 'Error Status: ' + err.status
+  p= err.stack
+  p
+    a.button(href='/') Home
